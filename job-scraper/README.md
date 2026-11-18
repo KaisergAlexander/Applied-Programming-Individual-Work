@@ -16,7 +16,7 @@ Details and design decisions are in [PROGRESS.md](PROGRESS.md) and [step1-data-c
 
 ## Data sources
 - **Greenhouse** and **Lever**: public job-board APIs of selected companies (N26, Celonis, GetYourGuide, HelloFresh, Farfetch). No key needed.
-- **Adzuna**: keyword and country search (finance / strategy, Germany). Free API key needed.
+- **Adzuna**: keyword and country search (finance / strategy, Germany). Optional: needs a free API key, without it this source is skipped and the other two still work.
 
 Companies and search terms are set in `config.py`.
 
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```
 
 ## Configuration
-1. Copy `.env.example` to `.env` and fill in your keys (never commit `.env`):
+1. Optional: copy `.env.example` to `.env` and fill in your keys (never commit `.env`). Without keys, steps 1 and 2 still run with Greenhouse and Lever data:
    ```env
    ADZUNA_APP_ID=your_id
    ADZUNA_API_KEY=your_key

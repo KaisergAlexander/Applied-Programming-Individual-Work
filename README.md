@@ -32,7 +32,7 @@ cd tv-maze
 pip install -r requirements.txt
 streamlit run streamlit_app.py    # or: python app.py for the Flask version
 
-# Job scraper (needs a free Adzuna key in .env, see its README)
+# Job scraper (works without any key; an optional free Adzuna key adds more jobs)
 cd job-scraper
 pip install -r requirements.txt
 python main.py                    # step 1: collects ~700 jobs
