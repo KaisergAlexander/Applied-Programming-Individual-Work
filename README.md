@@ -8,8 +8,6 @@ Four small projects for the Applied Programming course. Each one lives in its ow
 | Book Scraper (Streamlit) | [https://applied-programming-individual-work-menlasp42rjxsjiifgiubp.streamlit.app/](https://applied-programming-individual-work-menlasp42rjxsjiifgiubp.streamlit.app/) |
 | TV Maze Series Explorer (Streamlit) | [https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/](https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/) |
 
-The free Streamlit hosting puts apps to sleep after a few days without visitors. If a page shows a "Wake up" button, click it and wait a few seconds.
-
 The Chrome extension and the job scraper run locally (see their READMEs).
 
 ## Projects
