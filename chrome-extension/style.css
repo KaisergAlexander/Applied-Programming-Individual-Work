@@ -1,0 +1,78 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  color: #fff;
+  background: #1b2735;
+  overflow: hidden;
+}
+
+#bg {
+  position: fixed; inset: 0;
+  background: linear-gradient(135deg, #1e3c72, #2a5298 50%, #6a3093);
+  background-size: cover; background-position: center;
+  transition: opacity 0.8s;
+}
+#overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); }
+
+header, main, footer { position: relative; z-index: 1; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 28px; }
+#links a { color: #fff; text-decoration: none; margin-right: 18px; opacity: 0.85; font-size: 15px; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+#links a:hover { opacity: 1; text-decoration: underline; }
+#weather { display: flex; align-items: center; gap: 8px; font-size: 18px; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+#weather-icon { font-size: 28px; }
+#weather-place { font-size: 14px; opacity: 0.85; }
+
+main {
+  height: calc(100% - 180px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 0 20px;
+}
+#clock { font-size: clamp(80px, 16vw, 190px); font-weight: 600; line-height: 1; letter-spacing: -2px; text-shadow: 0 2px 14px rgba(0,0,0,.45); }
+#greeting { font-size: clamp(26px, 4vw, 46px); font-weight: 500; text-shadow: 0 2px 10px rgba(0,0,0,.45); margin-top: 6px; }
+#name { outline: none; border-bottom: 2px solid transparent; min-width: 40px; display: inline-block; }
+#name:hover, #name:focus { border-bottom-color: rgba(255,255,255,.6); }
+
+#focus-section { margin-top: 44px; width: min(560px, 90vw); }
+#focus-label { font-size: 22px; text-shadow: 0 1px 6px rgba(0,0,0,.5); margin-bottom: 8px; }
+#focus-input {
+  width: 100%; background: transparent; border: none; border-bottom: 2px solid rgba(255,255,255,.7);
+  color: #fff; font-size: 30px; text-align: center; padding: 6px; outline: none;
+}
+#focus-input:focus { border-bottom-color: #fff; }
+#focus-done { font-size: 30px; display: flex; justify-content: center; align-items: center; gap: 12px; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
+#focus-done[hidden] { display: none; }
+#focus-done input[type=checkbox] { width: 22px; height: 22px; accent-color: #fff; vertical-align: middle; }
+#focus-check:checked + #focus-text { text-decoration: line-through; opacity: .6; }
+#focus-clear { background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; opacity: 0; transition: opacity .2s; }
+#focus-done:hover #focus-clear { opacity: .8; }
+
+footer { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 20px 28px; }
+#quote { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); text-align: center; width: min(640px, 50vw); text-shadow: 0 1px 6px rgba(0,0,0,.6); }
+#quote-text { font-size: 17px; }
+#quote-author { font-size: 13px; opacity: .75; margin-top: 4px; }
+
+button { font-family: inherit; }
+#settings-btn, #todo-btn {
+  background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; opacity: .85; text-shadow: 0 1px 4px rgba(0,0,0,.6);
+}
+#settings-btn { font-size: 24px; }
+#settings-btn:hover, #todo-btn:hover { opacity: 1; }
+
+#settings-wrap, #todo-wrap { position: relative; }
+#settings, #todo-panel {
+  position: absolute; bottom: 44px; background: rgba(20,20,20,.88); backdrop-filter: blur(8px);
+  border-radius: 10px; padding: 14px 16px; box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+#settings { left: 0; width: 230px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+#settings[hidden], #todo-panel[hidden] { display: none; }
+#settings select, #refresh-bg { margin-left: 6px; background: #333; color: #fff; border: 1px solid #555; border-radius: 6px; padding: 4px 8px; cursor: pointer; }
+#todo-panel { right: 0; width: 300px; }
+#todo-title { font-weight: 600; margin-bottom: 8px; }
+#todo-list { list-style: none; margin: 0 0 10px; padding: 0; max-height: 240px; overflow-y: auto; }
+#todo-list li { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 15px; }
+#todo-list li span { flex: 1; word-break: break-word; }
+#todo-list li.done span { text-decoration: line-through; opacity: .5; }
+#todo-list li button { background: none; border: none; color: #fff; cursor: pointer; opacity: 0; font-size: 18px; }
+#todo-list li:hover button { opacity: .8; }
+#todo-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid #777; color: #fff; padding: 6px 2px; outline: none; font-size: 14px; }

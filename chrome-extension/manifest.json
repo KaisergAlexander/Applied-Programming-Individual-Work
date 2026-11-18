@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Dashboard New Tab",
+  "version": "1.0.0",
+  "description": "A Momentum-style new tab page: clock, greeting, daily focus, to-do list, weather and a daily quote.",
+  "chrome_url_overrides": { "newtab": "newtab.html" },
+  "permissions": ["storage", "geolocation"],
+  "host_permissions": ["https://api.open-meteo.com/*"],
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}

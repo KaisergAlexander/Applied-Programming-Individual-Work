@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-01-01",
+
+  "personal_info": {
+    "full_name": "Jane Example",
+    "address": { "street": "Example Street 1", "postal_code": "12345", "city": "Example City", "country": "DE" },
+    "phone": "+49 000 0000000",
+    "email": "jane.example@example.com",
+    "linkedin_url": null
+  },
+
+  "professional_experience": [
+    {
+      "company": "Example Consulting GmbH",
+      "title": "Working Student in Strategy",
+      "location": { "city": "Berlin", "country": "DE" },
+      "start_date": "2025-04",
+      "end_date": "2026-03",
+      "is_current": true,
+      "employment_type": "Werkstudent",
+      "achievements": [
+        "Built a monthly KPI report that cut preparation time by 50% for a team of 10",
+        "Supported market analyses for 3 client projects"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "institution": "Example University",
+      "degree": "M.Sc. Economics and Business Administration",
+      "location": { "city": "Berlin", "country": "DE" },
+      "start_date": "2024-09",
+      "end_date": "2026-06",
+      "gpa": null,
+      "honors": null,
+      "notes": null
+    }
+  ],
+
+  "extracurricular_activities": [
+    {
+      "organization": "Example Student Initiative",
+      "role": "Team Member",
+      "location": { "city": "Berlin", "country": "DE" },
+      "start_date": "2024-10",
+      "end_date": "2025-10",
+      "achievements": ["Organised a 100-person networking event"]
+    }
+  ],
+
+  "skills": {
+    "languages": [
+      { "language": "German", "proficiency": "Native" },
+      { "language": "English", "proficiency": "Fluent (C2)" }
+    ],
+    "technical": ["Excel", "PowerPoint", "Python"]
+  },
+
+  "awards": [],
+  "interests": ["Running", "Chess"],
+
+  "preferences": {
+    "target_job_titles": [],
+    "target_industries": ["Finance", "Strategy"],
+    "target_locations": [
+      { "city": null, "country": "DE" },
+      { "city": null, "country": "PT" }
+    ],
+    "work_mode_preference": "On-site",
+    "employment_types_sought": ["Internship", "Full-time"],
+    "salary_expectation": { "min": null, "max": null, "currency": "EUR", "period": null },
+    "desired_start_date": null,
+    "visa_sponsorship_needed": false,
+    "willing_to_relocate": true,
+    "notes": null
+  }
+}

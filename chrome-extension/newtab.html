@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="bg"></div>
+  <div id="overlay"></div>
+
+  <header>
+    <div id="links"></div>
+    <div id="weather" title="Weather">
+      <span id="weather-icon"></span>
+      <span id="weather-temp"></span>
+      <span id="weather-place"></span>
+    </div>
+  </header>
+
+  <main>
+    <div id="clock">--:--</div>
+    <div id="greeting">
+      <span id="greeting-text"></span>,
+      <span id="name" contenteditable="true" spellcheck="false" title="Click to change your name"></span>.
+    </div>
+
+    <section id="focus-section">
+      <div id="focus-label">What is your main focus for today?</div>
+      <input id="focus-input" type="text" autocomplete="off" maxlength="120" placeholder="">
+      <div id="focus-done" hidden>
+        <label><input type="checkbox" id="focus-check"> <span id="focus-text"></span></label>
+        <button id="focus-clear" title="Clear focus">&times;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div id="settings-wrap">
+      <button id="settings-btn" title="Settings">&#9881;</button>
+      <div id="settings" hidden>
+        <label><input type="checkbox" id="opt-24h"> 24-hour clock</label>
+        <label><input type="checkbox" id="opt-fahrenheit"> Fahrenheit</label>
+        <label>Background
+          <select id="opt-bg">
+            <option value="photo">Daily photo</option>
+            <option value="gradient">Gradient</option>
+          </select>
+        </label>
+        <button id="refresh-bg">New photo</button>
+      </div>
+    </div>
+
+    <div id="quote">
+      <div id="quote-text"></div>
+      <div id="quote-author"></div>
+    </div>
+
+    <div id="todo-wrap">
+      <div id="todo-panel" hidden>
+        <div id="todo-title">Todo</div>
+        <ul id="todo-list"></ul>
+        <input id="todo-input" type="text" placeholder="New todo" autocomplete="off" maxlength="120">
+      </div>
+      <button id="todo-btn">Todo</button>
+    </div>
+  </footer>
+
+  <script src="quotes.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
