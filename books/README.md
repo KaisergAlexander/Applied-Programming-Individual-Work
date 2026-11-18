@@ -5,7 +5,7 @@ Scrapes book data from [books.toscrape.com](https://books.toscrape.com) (HTML pa
 ## Technologies
 Python 3, requests, BeautifulSoup4, python-dotenv, supabase-py, Supabase (PostgreSQL), Streamlit, pandas, Git/GitHub.
 
-> **Live demo:** _link will be added after deployment_ (Streamlit app, `app.py`).
+> **Live demo:** [https://applied-programming-individual-work-menlasp42rjxsjiifgiubp.streamlit.app/](https://applied-programming-individual-work-menlasp42rjxsjiifgiubp.streamlit.app/) (Streamlit app, `app.py`).
 
 ## Streamlit app (quick start)
 Browse the scraped books in an interactive dashboard (filters by title, category, rating, price and stock; charts; book detail view with cover and description):

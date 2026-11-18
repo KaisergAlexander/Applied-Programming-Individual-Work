@@ -5,8 +5,10 @@ Four small projects for the Applied Programming course. Each one lives in its ow
 ## Live demos
 | Project | Open it |
 |---|---|
-| Book Scraper (Streamlit) | _link will be added after deployment_ |
-| TV Maze Series Explorer (Streamlit) | _link will be added after deployment_ |
+| Book Scraper (Streamlit) | [https://applied-programming-individual-work-menlasp42rjxsjiifgiubp.streamlit.app/](https://applied-programming-individual-work-menlasp42rjxsjiifgiubp.streamlit.app/) |
+| TV Maze Series Explorer (Streamlit) | [https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/](https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/) |
+
+The free Streamlit hosting puts apps to sleep after a few days without visitors. If a page shows a "Wake up" button, click it and wait a few seconds.
 
 The Chrome extension and the job scraper run locally (see their READMEs).
 
@@ -32,10 +34,11 @@ cd tv-maze
 pip install -r requirements.txt
 streamlit run streamlit_app.py    # or: python app.py for the Flask version
 
-# Job scraper
+# Job scraper (needs a free Adzuna key in .env, see its README)
 cd job-scraper
 pip install -r requirements.txt
-python match_engine.py            # needs data from "python main.py" first, see its README
+python main.py                    # step 1: collects ~700 jobs
+python match_engine.py            # step 2: scores and ranks them
 
 # Chrome extension: chrome://extensions -> Developer mode -> Load unpacked -> select chrome-extension/
 ```

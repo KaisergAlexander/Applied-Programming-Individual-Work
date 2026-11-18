@@ -2,7 +2,7 @@
 
 A TV show discovery website built with Flask and the free [TVmaze API](https://www.tvmaze.com/api). Search for shows or actors and see ratings, cast, episodes by season and similar shows, in a modern dark interface. It also teaches how REST APIs work: every feature below is built from real API responses.
 
-> **Live demo:** _link will be added after deployment_ (Streamlit version, `streamlit_app.py`).
+> **Live demo:** [https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/](https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/) (Streamlit version, `streamlit_app.py`).
 
 ## Two versions
 - `streamlit_app.py`: Streamlit version, can be hosted online (live demo above).
