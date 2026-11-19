@@ -2,6 +2,24 @@
 
 A Chrome extension that replaces the new-tab page with a personal dashboard in the style of [Momentum](https://momentumdash.com/): a full-screen photo, a big clock, a greeting, your focus for the day, a to-do list, the weather and a daily quote. It is built from scratch with plain HTML, CSS and JavaScript (Manifest V3, no frameworks, no build step).
 
+## Purpose
+This is my version of the Momentum Dash browser extension. It replaces Chrome's empty new-tab page with a dashboard that shows the time, a greeting, one focus for the day, a to-do list, the weather and a quote.
+
+## Data collection
+- **Weather:** from the free [Open-Meteo](https://open-meteo.com/) API, no key. It uses the browser's location only if the user allows it.
+- **Background photo:** a new image each day from picsum.photos.
+- **Quotes:** a short list of well-known quotes bundled in `quotes.js`, so it works offline.
+- **User input:** name, focus, to-do tasks and settings that the user types.
+
+## Data persistence
+Name, focus, tasks and settings are stored in the browser with `chrome.storage.local`, and the weather answer is cached for 30 minutes. Nothing is sent to a server of mine. This is enough because the data is small and personal; an account system would add complexity without benefit.
+
+## User interaction
+After installing, every new tab shows the dashboard. Click the name to change it, type a focus and tick it off, add and delete tasks, and use the gear icon for clock format, temperature unit and background.
+
+## Setup
+See "Installation (no store needed)" below. No keys or configuration are needed.
+
 ## Features
 - **Clock and greeting**: 24h or 12h clock, "Good morning / afternoon / evening, *name*". Click your name to change it.
 - **Daily focus**: type your main goal for today, tick it off when done. It resets automatically on the next day.
@@ -41,3 +59,14 @@ To update after changing the code: click the reload icon on the extension's card
 - **No weather shown**: location permission was denied or you are offline. Reset it via the lock icon next to the address bar.
 - **No photo, only a gradient**: you are offline or picsum.photos is unreachable.
 - **Page does not change after editing code**: reload the extension in `chrome://extensions`.
+
+## Learning
+I learned how a browser extension is put together: a `manifest.json` that tells Chrome which page to open and which permissions are needed, plus ordinary HTML, CSS and JavaScript. I also learned to ask for as little as possible: the extension only has `storage` and `geolocation` permission and may only contact `api.open-meteo.com`. Inserting user text with `textContent` instead of as HTML was a practical lesson in basic security.
+
+**A challenge:** the weather depends on the location permission, and users can say no or be offline. I made the weather widget and the photo fail quietly (the widget hides, the background falls back to a gradient) so the page never looks broken.
+
+## Limitations and assistance
+- **Not very original:** I stayed close to the Momentum idea. I am not a big fan of this kind of product, and to-do lists and daily goals on every new tab can feel stressful to me. I never decided what I would personally want to see when I open Chrome, so I did not build a distinctive concept. A clearer idea would have been a better project.
+- **Only local:** it is installed manually (developer mode) and not published in the Chrome Web Store. Data stays in one browser and does not sync between devices.
+- **Photos are random:** picsum.photos gives random images with no choice of theme.
+- **AI assistance:** built with Claude Code (Anthropic). I defined the features, loaded the extension in Chrome and tested it (including the weather); Claude Code wrote most of the code. Sources used: the Chrome extension (Manifest V3) documentation, the Open-Meteo documentation, and Momentum as the visual inspiration.

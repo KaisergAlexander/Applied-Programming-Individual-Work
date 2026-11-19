@@ -4,6 +4,21 @@ A TV show discovery website built with Flask and the free [TVmaze API](https://w
 
 > **Live demo:** [https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/](https://applied-programming-individual-work-avatqjzqrccoznpat4hqft.streamlit.app/) (Streamlit version, `streamlit_app.py`).
 
+## Purpose
+A website that connects to the free TVmaze API and turns its raw responses into something a person can use: search a show or an actor, see ratings, cast, episodes and similar shows. The goal was to understand how a program talks to an API, so every feature is built directly from API responses.
+
+## Data collection
+All data comes live from the public [TVmaze REST API](https://www.tvmaze.com/api) (`https://api.tvmaze.com`). No account and no API key are needed. [tvmaze.py](tvmaze.py) sends the requests with `requests`, checks the status code, handles timeouts and missing fields, and returns clean Python data. The endpoints and how their IDs connect are described under "API endpoints used" below.
+
+## Data persistence
+**Not applicable (no database).** The app stores nothing, because TVmaze already is the database and its data changes all the time. Saving a copy would make it outdated and add work without benefit. The only storage is a short-lived in-memory cache (`functools.lru_cache`) that avoids asking the API for the same page twice while the app runs.
+
+## User interaction
+Open the live demo (or run the app locally). Type a show name in the search bar, or switch to "Actors" to search a person. Click a poster to open the show page with description, rating, cast, episodes grouped by season and "You Might Also Like". Click an actor to see their other shows.
+
+## Setup
+See "Installation and execution" below. No configuration or keys are needed.
+
 ## Two versions
 - `streamlit_app.py`: Streamlit version, can be hosted online (live demo above).
 - `app.py` + `templates/` + `static/`: the original Flask version, runs locally.
@@ -106,8 +121,7 @@ Terminal version: `python main.py`
 
 ### VS Code: "Import requests could not be resolved"
 
-VS Code is using a different Python than the one with the packages. Press `Ctrl+Shift+P` -> **Python: Select Interpreter** -> choose `.\.venv\Scripts\python.exe`, then run **Developer: Reload Window** if needed. The project's `.vscode/settings.json` already points to `.venv`.
-
+VS Code is using a different Python than the one with the packages. Press `Ctrl+Shift+P` -> **Python: Select Interpreter** -> choose `.\.venv\Scripts\python.exe`, then run **Developer: Reload Window** if needed.
 ## Development Progress
 
 | Version | What was added |
@@ -117,3 +131,15 @@ VS Code is using a different Python than the one with the packages. Press `Ctrl+
 | v0.3 | Modern dark UI with posters and responsive cards. Show details and ratings (TVmaze rating, IMDb link). Cast with actor photos and clickable actors. Actor pages and actor search (`/search/people`, `/people/{id}/castcredits`). Collapsible episodes per season. "You Might Also Like" recommendations by genre. Removed API explanations from the website (documented here instead). Response caching. |
 
 > Maintenance rule: update this README (features, endpoints, progress table) whenever functionality is added.
+
+## Learning
+I learned what an **API** really is: a list of web addresses that answer with structured data (JSON) instead of a web page. I also learned the pattern behind almost every API: a request with a *name* returns an *ID*, and the ID is the key to every other request (details, cast, episodes, person, credits). Once I understood that chain, the other APIs in this course looked the same. I also learned that APIs fail in normal operation, with timeouts, 404 errors and missing fields such as a show without a rating or an image, and that handling this is part of the work rather than an extra.
+
+**A challenge:** I wanted a "similar shows" feature, but TVmaze has no endpoint for it. I solved it by comparing genres: I read the genres of the current show, download one index page of 250 shows and rank those that share genres, using the rating as tie-breaker. Downloading the whole catalogue would have been too slow, so I accepted a smaller, faster answer.
+
+## Limitations and assistance
+- **Recommendations are approximate:** they only look at one page of 250 shows near the current show's ID, so they come from roughly the same period of the catalogue.
+- **No IMDb rating:** TVmaze provides only its own rating and the IMDb ID. The app links to IMDb instead of showing a score.
+- **No persistence:** every visit calls the live API. If TVmaze is down, the app shows an error message.
+- **Two interfaces:** the Flask version runs locally only; the Streamlit version is the one hosted online.
+- **AI assistance:** I built this with Claude Code (Anthropic) in VS Code. I defined the features, reviewed and tested them; Claude Code wrote most of the code. Sources used: the official TVmaze API documentation and the Flask and Streamlit documentation.
